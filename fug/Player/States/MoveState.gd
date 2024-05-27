@@ -3,11 +3,11 @@ extends PlayerState
 class_name MoveState
 
 func enter(controller_: StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
 	player.play_animation("Idle")
 
 func process(delta : float) -> void:
-	.process(delta)
+	super.process(delta)
 	_handle_inputs()
 
 func _handle_inputs() -> void:

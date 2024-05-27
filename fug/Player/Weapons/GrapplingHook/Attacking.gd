@@ -1,23 +1,22 @@
 extends GrapplingHookState
 
-export var max_range : float = 250
-export var attack_time : float = 0.5
-export var attack_curve : Curve
+@export var max_range : float = 250
+@export var attack_time : float = 0.5
+@export var attack_curve : Curve
 
 var _target_position : Vector2
 
-onready var _attack_animation := AnimatedCurve.new(attack_curve, attack_time)
+@onready var _attack_animation := AnimatedCurve.new(attack_curve, attack_time)
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
 	grappling_hook.show()
 	grappling_hook.set_collider_disabled(false)
 	_target_position = grappling_hook.get_global_mouse_position()
 	_attack_animation.reset()
-	_target_position - grappling_hook.get_global_mouse_position()
 	_enforce_max_range()
 
-func process(delta : float) -> void:
+func process(_delta : float) -> void:
 	update_line_renderer()
 
 func physics_process(delta : float) -> void:

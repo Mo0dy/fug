@@ -1,95 +1,87 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=3 uid="uid://ddk36a78o024g"]
 
-[ext_resource path="res://Player/Weapons/GrapplingHook/GrapplingHook.gd" type="Script" id=1]
-[ext_resource path="res://Player/Weapons/GrapplingHook/RetractCurve.tres" type="Curve" id=2]
-[ext_resource path="res://BaseScripts/StateMachine.gd" type="Script" id=3]
-[ext_resource path="res://Player/Weapons/Assets/TentacleHook.png" type="Texture" id=4]
-[ext_resource path="res://Player/Weapons/GrapplingHook/Grappled.gd" type="Script" id=5]
-[ext_resource path="res://Player/Weapons/GrapplingHook/Macing.gd" type="Script" id=6]
-[ext_resource path="res://Player/Weapons/GrapplingHook/Attacking.gd" type="Script" id=7]
-[ext_resource path="res://Player/Weapons/GrapplingHook/Retracting.gd" type="Script" id=8]
-[ext_resource path="res://Player/Weapons/GrapplingHook/Idle.gd" type="Script" id=9]
-[ext_resource path="res://Player/Weapons/GrapplingHook/AttackCurve.tres" type="Curve" id=10]
-[ext_resource path="res://icon.png" type="Texture" id=11]
-[ext_resource path="res://Player/Weapons/Assets/Tentacle.png" type="Texture" id=12]
-[ext_resource path="res://Player/Weapons/GrapplingHook/ReactionCurve.tres" type="Curve" id=13]
-[ext_resource path="res://Player/Weapons/GrapplingHook/GrapplingHookShader.tres" type="Material" id=14]
-[ext_resource path="res://Player/Weapons/GrapplingHook/Resetting.gd" type="Script" id=15]
+[ext_resource type="Script" path="res://Player/Weapons/GrapplingHook/GrapplingHook.gd" id="1"]
+[ext_resource type="Curve" uid="uid://71bfqwi8r53v" path="res://Player/Weapons/GrapplingHook/RetractCurve.tres" id="2"]
+[ext_resource type="Script" path="res://BaseScripts/StateMachine.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://crox0y1dyqb3p" path="res://Player/Weapons/Assets/TentacleHook.png" id="4"]
+[ext_resource type="Script" path="res://Player/Weapons/GrapplingHook/Grappled.gd" id="5"]
+[ext_resource type="Script" path="res://Player/Weapons/GrapplingHook/Macing.gd" id="6"]
+[ext_resource type="Script" path="res://Player/Weapons/GrapplingHook/Attacking.gd" id="7"]
+[ext_resource type="Script" path="res://Player/Weapons/GrapplingHook/Retracting.gd" id="8"]
+[ext_resource type="Script" path="res://Player/Weapons/GrapplingHook/Idle.gd" id="9"]
+[ext_resource type="Curve" uid="uid://bnikdo2jlquju" path="res://Player/Weapons/GrapplingHook/AttackCurve.tres" id="10"]
+[ext_resource type="Texture2D" uid="uid://b36gd2qskqg6h" path="res://icon.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://didjuhcqekyx7" path="res://Player/Weapons/Assets/Tentacle.png" id="12"]
+[ext_resource type="Curve" uid="uid://cn7fgmu7nla01" path="res://Player/Weapons/GrapplingHook/DistanceCurve.tres" id="12_ee7rn"]
+[ext_resource type="Curve" uid="uid://bgicbbc52xiwx" path="res://Player/Weapons/GrapplingHook/AngleCurve.tres" id="13_3eons"]
+[ext_resource type="Material" uid="uid://dn3fxutdv15ny" path="res://Player/Weapons/GrapplingHook/GrapplingHookShader.tres" id="14"]
+[ext_resource type="Script" path="res://Player/Weapons/GrapplingHook/Resetting.gd" id="15"]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 5.40735
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 4.07481
 height = 8.14963
 
-[sub_resource type="Curve" id=2]
-_data = [ Vector2( 0, 0.0172414 ), 0.0, 1.14398, 0, 0, Vector2( 0.5, 0.982759 ), -0.0901579, 0.105551, 0, 0, Vector2( 0.835017, 0.103448 ), 0.0, 0.0, 0, 0, Vector2( 0.986532, 0.0344827 ), -1.14542, 0.0, 0, 0 ]
-
-[sub_resource type="Curve" id=3]
-min_value = -1.0
-_data = [ Vector2( 0, 0.0172414 ), 0.0, -6.14483, 0, 0, Vector2( 0.191919, -1 ), 0.0, 0.0, 0, 0, Vector2( 0.508417, 0.0172414 ), 7.31527, 7.31527, 0, 0, Vector2( 0.794613, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -5.73517, 0.0, 0, 0 ]
-
 [node name="GrapplingHook" type="Area2D"]
-position = Vector2( 0, 0.0394993 )
+position = Vector2(0, 0.0394993)
 collision_layer = 0
 collision_mask = 5
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="IdlePosition" type="Node2D" parent="."]
-position = Vector2( 12.4562, 0.104671 )
-skew = 4.37114e-08
+position = Vector2(12.4562, 0.104671)
 
-[node name="Area" type="CollisionShape2D" parent="."]
-position = Vector2( 22.8802, 0.00763868 )
+[node name="Area3D" type="CollisionShape2D" parent="."]
+position = Vector2(22.8802, 0.00763868)
 rotation = 1.57079
-skew = 4.37114e-08
-shape = SubResource( 1 )
+shape = SubResource("1")
 
-[node name="Sprite" type="Sprite" parent="Area"]
-material = ExtResource( 14 )
+[node name="Sprite2D" type="Sprite2D" parent="Area3D"]
+material = ExtResource("14")
 rotation = -1.5708
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 4 )
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource( 9 )
+script = ExtResource("9")
 
 [node name="Attacking" type="Node" parent="StateMachine"]
-script = ExtResource( 7 )
-reaction_curve = ExtResource( 2 )
+script = ExtResource("7")
 attack_time = 0.35
-attack_curve = ExtResource( 10 )
+attack_curve = ExtResource("10")
+reaction_curve = ExtResource("2")
 
 [node name="Retracting" type="Node" parent="StateMachine"]
-script = ExtResource( 8 )
-reaction_curve = ExtResource( 2 )
-retract_curve = ExtResource( 2 )
+script = ExtResource("8")
+retract_curve = ExtResource("2")
 retract_time = 0.4
 min_retract_time = 0.4
 nominated_retract_dist = 200.0
+reaction_curve = ExtResource("2")
 
 [node name="Shield" type="Node" parent="StateMachine"]
-script = ExtResource( 5 )
+script = ExtResource("5")
 
 [node name="Macing" type="Node" parent="StateMachine"]
-script = ExtResource( 6 )
-reaction_curve = ExtResource( 13 )
-distance_curve = SubResource( 2 )
-angle_curve = SubResource( 3 )
+script = ExtResource("6")
+distance_curve = ExtResource("12_ee7rn")
+angle_curve = ExtResource("13_3eons")
+reaction_curve = ExtResource("2")
 
 [node name="Resetting" type="Node" parent="StateMachine"]
-script = ExtResource( 15 )
+script = ExtResource("15")
 
-[node name="SpriteDebug" type="Sprite" parent="."]
+[node name="SpriteDebug" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource( 11 )
+texture = ExtResource("11")
 
 [node name="Line2D" type="Line2D" parent="."]
-material = ExtResource( 14 )
-points = PoolVector2Array( 0, 0, 100, 0.04 )
+material = ExtResource("14")
+points = PackedVector2Array(0, 0, 100, 0.04)
 width = 15.0
-default_color = Color( 1, 1, 1, 1 )
-texture = ExtResource( 12 )
+texture = ExtResource("12")
 texture_mode = 1
+
 [connection signal="body_entered" from="." to="StateMachine" method="_on_Parent_body_entered"]

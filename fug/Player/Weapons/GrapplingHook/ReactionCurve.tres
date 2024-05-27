@@ -1,7 +1,0 @@
-[gd_resource type="Curve" load_steps=2 format=2]
-
-[ext_resource path="res://BaseScripts/AnimatedCurve.gd" type="Script" id=1]
-
-[resource]
-_data = [ Vector2( 0.0052356, 0 ), 0.0, 3.3919, 0, 1, Vector2( 0.267016, 0.887931 ), 0.562237, 0.562237, 0, 0, Vector2( 0.994764, 0.991379 ), 0.0422192, 0.0, 0, 0 ]
-script = ExtResource( 1 )

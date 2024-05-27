@@ -2,4 +2,4 @@ extends State
 
 class_name MobState
 
-onready var mob : MobOld = owner
+@onready var mob : MobOld = owner

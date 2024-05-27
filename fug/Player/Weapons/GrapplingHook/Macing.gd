@@ -1,19 +1,21 @@
 extends GrapplingHookState
 
-export var distance_curve : Curve
-export var angle_curve : Curve
+@export var distance_curve : Curve
+@export var angle_curve : Curve
 
-export var max_range : float = 100
-export var attack_time : float = 0.6
-export var attack_angle : float = PI / 8
+@export var max_range : float = 100
+@export var attack_time : float = 0.6
+@export var attack_angle : float = PI / 8
 
 var _target_position : Vector2
 
-onready var _distance_animation := AnimatedCurve.new(distance_curve, attack_time)
-onready var _angle_animation := AnimatedCurve.new(angle_curve, attack_time, attack_angle)
+var _distance_animation: AnimatedCurve
+var _angle_animation: AnimatedCurve
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
+	# _distance_animation = AnimatedCurve.new(distance_curve, attack_time)
+	# _angle_animation = AnimatedCurve.new(angle_curve, attack_time, attack_angle)
 	_distance_animation.reset()
 	_angle_animation.reset()
 	_target_position = grappling_hook.get_global_mouse_position()
@@ -23,7 +25,7 @@ func enter(controller_ : StateMachine) -> void:
 		grappling_hook.grappled_actor.be_weapon()
 
 func leave() -> void:
-	.leave()
+	super.leave()
 	if grappling_hook.has_actor:
 		grappling_hook.grappled_actor.be_grappled()
 
@@ -46,7 +48,7 @@ func physics_process(delta : float) -> void:
 	update_line_renderer()
 	
 	if done:
-		grappling_hook.emit_signal("done")
+		grappling_hook.done.emit()
 		if grappling_hook.has_actor:
 			controller.change_to("Shield")
 		else:

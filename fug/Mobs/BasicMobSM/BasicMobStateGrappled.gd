@@ -1,12 +1,12 @@
 extends State
 
-onready var _mob : BasicMob = owner as BasicMob
+@onready var _mob : BasicMob = owner as BasicMob
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
 	_mob.play_animation("Idle")
 	_mob.movement_controller.enabled = false
 
 func leave() -> void:
-	.leave()
+	super.leave()
 	_mob.movement_controller.enabled = true

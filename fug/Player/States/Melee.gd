@@ -1,15 +1,15 @@
 extends MoveState
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
 	# do attack
 	player.play_animation("Attack")
 	player.weapon.attack()
-	player.weapon.connect("done", self, "_on_Weapon_done")
+	player.weapon.connect("done", Callable(self, "_on_Weapon_done"))
 
 func leave() -> void:
-	.leave()
-	player.weapon.disconnect("done", self, "_on_Weapon_done")
+	super.leave()
+	player.weapon.disconnect("done", Callable(self, "_on_Weapon_done"))
 
 func unhandled_input(event : InputEvent) -> void:
 	# TODO: check some global dash timeout

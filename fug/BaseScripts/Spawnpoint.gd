@@ -2,12 +2,12 @@ extends Node2D
 
 class_name Spawnpoint
 
-export (PackedScene) var mob_scene
-export var is_active := true
-export var spawn_time : float = 5
+@export var mob_scene: PackedScene
+@export var is_active := true
+@export var spawn_time : float = 5
 
-export var spawn_amount : int = 20
-export var endless_spawn := false
+@export var spawn_amount : int = 20
+@export var endless_spawn := false
 
 func _ready() -> void:
 	$Timer.wait_time = spawn_time
@@ -27,8 +27,8 @@ func _can_spawn() -> bool:
 	return spawn_allowed
 
 func _spawn() -> void:
-	var mob = mob_scene.instance()
+	var mob = mob_scene.instantiate()
 	GameManager.level_manager.call_deferred("add_child", mob)
 	# GameManager.level_manager.add_child(mob)
-	mob.rotation = rand_range(0, PI * 2)
+	mob.rotation = randf_range(0, PI * 2)
 	mob.position = position

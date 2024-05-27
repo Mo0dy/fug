@@ -2,10 +2,10 @@ extends State
 
 class_name BasicMobStateDeath
 
-onready var _mob : BasicMob = owner as BasicMob
+@onready var _mob : BasicMob = owner as BasicMob
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
 	_mob.movement_controller.target_speed = Vector2.ZERO
 	if _mob.animator.animation != "Death":
 		_mob.play_animation("Death")
@@ -13,8 +13,8 @@ func enter(controller_ : StateMachine) -> void:
 	_mob.animator.z_index = -20
 	_mob.death_audio.play()
 	
-	_callback(funcref(self, "_stop_play"), 1)
-	_callback(funcref(self, "_set_death_colors"), 1)
+	_callback(self._stop_play, 1)
+	_callback(self._set_death_colors, 1)
 
 func _stop_play() -> void:
 	_mob.death_audio.stop()

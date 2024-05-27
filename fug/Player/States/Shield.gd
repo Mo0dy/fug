@@ -1,17 +1,17 @@
 extends PlayerDefault
 
-export var shove_strength : float = 350
+@export var shove_strength : float = 350
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
-	player.grappling_hook.connect("drop_body", self, "_on_GrapplingHook_drop_body")
+	super.enter(controller_)
+	player.grappling_hook.connect("drop_body", Callable(self, "_on_GrapplingHook_drop_body"))
 	# HACK: No idea why I need this:
 	if not player.grappling_hook.has_actor:
 		controller.change_to("Default")
 
 func leave() -> void:
-	.leave()
-	player.grappling_hook.disconnect("drop_body", self, "_on_GrapplingHook_drop_body")
+	super.leave()
+	player.grappling_hook.disconnect("drop_body", Callable(self, "_on_GrapplingHook_drop_body"))
 
 func unhandled_input(event : InputEvent) -> void:
 	if event.is_action_pressed("attack"):

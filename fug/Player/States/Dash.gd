@@ -5,7 +5,7 @@ var _direction : Vector2
 # the distance moved through the curve (normalized)
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
 	_direction = Vector2()
 	if Input.is_action_pressed("up"):
 		_direction += Vector2.UP
@@ -17,11 +17,11 @@ func enter(controller_ : StateMachine) -> void:
 		_direction += Vector2.LEFT
 	_direction = _direction.normalized()
 	player.movement_controller.dash(_direction)
-	player.movement_controller.connect("state_change", self, "on_Player_state_change")
+	player.movement_controller.connect("state_change", Callable(self, "on_Player_state_change"))
 
 func leave() -> void:
-	.leave()
-	player.movement_controller.disconnect("state_change", self, "on_Player_state_change")
+	super.leave()
+	player.movement_controller.disconnect("state_change", Callable(self, "on_Player_state_change"))
 
 func unhandled_input(event : InputEvent) -> void:
 	if event.is_action_pressed("attack"):

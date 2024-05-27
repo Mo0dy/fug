@@ -2,19 +2,19 @@ extends Mob
 
 class_name BasicMob
 
-onready var movement_controller : BasicMobMC = $MovementController
-onready var weapon : MobWeapon = $Weapon
-onready var animator := $AnimatedSprite
-onready var _state_machine : StateMachine = $StateMachine
-onready var hit_audio := $Hit
-onready var death_audio := $Death
-onready var body_weapon : BodyWeapon = $BodyWeapon
+@onready var movement_controller : BasicMobMC = $MovementController
+@onready var weapon : MobWeapon = $Weapon
+@onready var animator := $AnimatedSprite2D
+@onready var _state_machine : StateMachine = $StateMachine
+@onready var hit_audio := $Hit
+@onready var death_audio := $Death
+@onready var body_weapon : BodyWeapon = $BodyWeapon
 
 func _ready() -> void:
 	body_weapon.ignore_actor(self)
 
 func die() -> void:
-	.die()
+	super.die()
 	if not _state_machine.is_current_state("Death") and not _state_machine.is_current_state("Shoved"):
 		_state_machine.change_to("Death")
 

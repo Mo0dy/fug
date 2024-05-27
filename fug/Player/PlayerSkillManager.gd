@@ -2,7 +2,7 @@ extends Node
 
 class_name SkillManager
 
-onready var player := owner
+@onready var player := owner
 
 func enable_dash() -> void:
 	owner.has_dash = true

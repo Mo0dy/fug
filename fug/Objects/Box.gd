@@ -1,11 +1,10 @@
 extends Actor
 
-onready var _animator := $Animator
-onready var _collider := $Collider
+@onready var _animator := $Animator
 
 func die() -> void:
-	.die()
+	super.die()
 	_animator.play("Death")
 
-func shoved(impulse : Vector2) -> void:
+func shoved(_impulse : Vector2) -> void:
 	die()

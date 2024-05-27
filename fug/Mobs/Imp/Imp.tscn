@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=2]
 
-[ext_resource path="res://Mobs/Imp/Assets/sprPantherWalk_strip8.png" type="Texture" id=1]
-[ext_resource path="res://Mobs/Imp/Assets/sprPantherSit_strip20.png" type="Texture" id=2]
+[ext_resource path="res://Mobs/Imp/Assets/sprPantherWalk_strip8.png" type="Texture2D" id=1]
+[ext_resource path="res://Mobs/Imp/Assets/sprPantherSit_strip20.png" type="Texture2D" id=2]
 [ext_resource path="res://Mobs/Imp/Default.gd" type="Script" id=3]
 [ext_resource path="res://BaseScripts/StateMachine.gd" type="Script" id=4]
 
@@ -175,9 +175,9 @@ height = 13.2136
 [sub_resource type="RectangleShape2D" id=32]
 extents = Vector2( 135.665, 132.233 )
 
-[node name="Imp" type="KinematicBody2D"]
+[node name="Imp" type="CharacterBody2D"]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2( 0, -3.48681 )
 frames = SubResource( 1 )
 animation = "Walking"

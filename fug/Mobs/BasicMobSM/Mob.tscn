@@ -1,216 +1,261 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=44 format=3 uid="uid://do0tlpl4g55uf"]
 
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobSM.gd" type="Script" id=1]
-[ext_resource path="res://Mobs/Assets/sprBoss1Attack_strip5.png" type="Texture" id=2]
-[ext_resource path="res://Mobs/Assets/sprBoss1GetUp_strip8.png" type="Texture" id=3]
-[ext_resource path="res://Mobs/Assets/sprBoss1Dead.png" type="Texture" id=4]
-[ext_resource path="res://Mobs/Assets/sprBoss1Walk_strip8.png" type="Texture" id=5]
-[ext_resource path="res://BaseScripts/StateMachine.gd" type="Script" id=6]
-[ext_resource path="res://Assets/music/death.wav" type="AudioStream" id=7]
-[ext_resource path="res://Assets/music/BiteCreakBloodJuicy_002.wav" type="AudioStream" id=8]
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobStateReorient.gd" type="Script" id=9]
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobStateTarget.gd" type="Script" id=10]
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobStateAttack.gd" type="Script" id=11]
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobStateWalk.gd" type="Script" id=12]
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobStateDeath.gd" type="Script" id=13]
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobMC.gd" type="Script" id=14]
-[ext_resource path="res://Mobs/MobWeapons/Punch.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobStateGrappled.gd" type="Script" id=16]
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobStateShoved.gd" type="Script" id=17]
-[ext_resource path="res://Mobs/MobWeapons/BodyWeapon.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Mobs/BasicMobSM/BasicMobStateWeaponized.gd" type="Script" id=19]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobSM.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://daaiit51srchb" path="res://Mobs/Assets/sprBoss1Attack_strip5.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cd5b5qa20mb3v" path="res://Mobs/Assets/sprBoss1GetUp_strip8.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bhgl74yau0fu2" path="res://Mobs/Assets/sprBoss1Dead.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bn4nus7yjaqb" path="res://Mobs/Assets/sprBoss1Walk_strip8.png" id="5"]
+[ext_resource type="Script" path="res://BaseScripts/StateMachine.gd" id="6"]
+[ext_resource type="AudioStream" uid="uid://4mbtdb6e8e5m" path="res://Assets/music/death.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://jlmhd6hsl1km" path="res://Assets/music/BiteCreakBloodJuicy_002.wav" id="8"]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobStateReorient.gd" id="9"]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobStateTarget.gd" id="10"]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobStateAttack.gd" id="11"]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobStateWalk.gd" id="12"]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobStateDeath.gd" id="13"]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobMC.gd" id="14"]
+[ext_resource type="PackedScene" path="res://Mobs/MobWeapons/Punch.tscn" id="15"]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobStateGrappled.gd" id="16"]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobStateShoved.gd" id="17"]
+[ext_resource type="PackedScene" path="res://Mobs/MobWeapons/BodyWeapon.tscn" id="18"]
+[ext_resource type="Script" path="res://Mobs/BasicMobSM/BasicMobStateWeaponized.gd" id="19"]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id="1"]
 radius = 7.41665
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("2")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("2")
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("2")
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 420, 0, 60, 60 )
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("3")
+region = Rect2(420, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 360, 0, 60, 60 )
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("3")
+region = Rect2(360, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 300, 0, 60, 60 )
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("3")
+region = Rect2(300, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 240, 0, 60, 60 )
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("3")
+region = Rect2(240, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 180, 0, 60, 60 )
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("3")
+region = Rect2(180, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 120, 0, 60, 60 )
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("3")
+region = Rect2(120, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 60, 0, 60, 60 )
+[sub_resource type="AtlasTexture" id="13"]
+atlas = ExtResource("3")
+region = Rect2(60, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 60, 60 )
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="23"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("5")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 96, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("5")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 128, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="18"]
+atlas = ExtResource("5")
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 160, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("5")
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 192, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="20"]
+atlas = ExtResource("5")
+region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 224, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="21"]
+atlas = ExtResource("5")
+region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="22"]
+atlas = ExtResource("5")
+region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id=24]
-animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+[sub_resource type="SpriteFrames" id="24"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("5")
+}, {
+"duration": 1.0,
+"texture": SubResource("6")
+}],
 "loop": false,
-"name": "Attack",
+"name": &"Attack",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), ExtResource( 4 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("7")
+}, {
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}, {
+"duration": 1.0,
+"texture": SubResource("10")
+}, {
+"duration": 1.0,
+"texture": SubResource("11")
+}, {
+"duration": 1.0,
+"texture": SubResource("12")
+}, {
+"duration": 1.0,
+"texture": SubResource("13")
+}, {
+"duration": 1.0,
+"texture": SubResource("14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
 "loop": false,
-"name": "Death",
+"name": &"Death",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 20.0
-}, {
-"frames": [ SubResource( 23 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("23")
+}],
 "loop": false,
-"name": "Idle",
+"name": &"Idle",
 "speed": 5.0
-} ]
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("15")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("18")
+}, {
+"duration": 1.0,
+"texture": SubResource("19")
+}, {
+"duration": 1.0,
+"texture": SubResource("20")
+}, {
+"duration": 1.0,
+"texture": SubResource("21")
+}, {
+"duration": 1.0,
+"texture": SubResource("22")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 20.0
+}]
 
-[node name="BasicMobSM" type="KinematicBody2D"]
+[node name="BasicMobSM" type="CharacterBody2D"]
 collision_mask = 7
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.996498, 0.664333 )
-shape = SubResource( 1 )
+position = Vector2(-0.996498, 0.664333)
+shape = SubResource("1")
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -10
-frames = SubResource( 24 )
-animation = "Idle"
+sprite_frames = SubResource("24")
+animation = &"Idle"
 
-[node name="Weapon" parent="." instance=ExtResource( 15 )]
-skew = 4.37114e-08
+[node name="Weapon" parent="." instance=ExtResource("15")]
 
-[node name="BodyWeapon" parent="." instance=ExtResource( 18 )]
-skew = 4.37114e-08
+[node name="BodyWeapon" parent="." instance=ExtResource("18")]
 
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource("7")
 volume_db = -25.0
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource("8")
 volume_db = -20.534
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [node name="Walk" type="Node" parent="StateMachine"]
-script = ExtResource( 12 )
+script = ExtResource("12")
 
 [node name="Reorient" type="Node" parent="StateMachine"]
-script = ExtResource( 9 )
+script = ExtResource("9")
 
 [node name="Target" type="Node" parent="StateMachine"]
-script = ExtResource( 10 )
+script = ExtResource("10")
 
 [node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource( 13 )
+script = ExtResource("13")
 
 [node name="Grappled" type="Node" parent="StateMachine"]
-script = ExtResource( 16 )
+script = ExtResource("16")
 
 [node name="Attack" type="Node" parent="StateMachine"]
-script = ExtResource( 11 )
+script = ExtResource("11")
 
 [node name="Shoved" type="Node" parent="StateMachine"]
-script = ExtResource( 17 )
+script = ExtResource("17")
 
 [node name="Weaponized" type="Node" parent="StateMachine"]
-script = ExtResource( 19 )
+script = ExtResource("19")
 
 [node name="MovementController" type="Node" parent="."]
-script = ExtResource( 14 )
+script = ExtResource("14")
 look_at_move = true
 friction = 600.0

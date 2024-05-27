@@ -4,7 +4,7 @@ class_name StateMachine
 
 signal change_state(last_state_name, new_state_name)
 
-export var DEBUG := false
+@export var DEBUG := false
 
 # We can't specify the State type here due to an engine bug
 var state := Node.new()
@@ -23,7 +23,7 @@ func change_to(node : String) -> void:
 	last_state = state.name
 	state = get_node(node)
 	_enter_state()
-	emit_signal("change_state", last_state, state.name)
+	change_state.emit(last_state, state.name)
 
 func _enter_state() -> void:
 	if DEBUG:
@@ -46,19 +46,20 @@ func _unhandled_input(event: InputEvent) -> void:
 	if state.has_method("unhandled_input"):
 		state.unhandled_input(event)
 		
-func _unhandled_key_input(event: InputEventKey) -> void:
+func _unhandled_key_input(event: InputEvent) -> void:
 	if state.has_method("unhandled_key_input"):
 		state.unhandled_key_input(event)
 
-func _notification(what: int) -> void:
-	if not is_instance_valid(state): return
-	if state && state.has_method("notification"):
-		state.notification(what)
+# TODO: fix this
+# func _notification(what: int) -> void:
+# 	if not is_instance_valid(state): return
+# 	if state && state.has_method("notification"):
+# 		state.notification(what)
 
 
 func _on_Parent_body_entered(body: Node) -> void:
 	if state.has_method("on_Parent_body_entered"):
 		state.on_Parent_body_entered(body)
 
-func is_current_state(name : String):
-	return state.name == name
+func is_current_state(state_name : String):
+	return state.name == state_name

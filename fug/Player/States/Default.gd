@@ -3,8 +3,8 @@ extends MoveState
 class_name PlayerDefault
 
 func process(delta : float) -> void:
-	.process(delta)
-	if player.movement_controller.get_speed() > 5:
+	super.process(delta)
+	if player.movement_controller.get_velocity() > 5:
 		player.play_animation("Walking")
 	else:
 		player.play_animation("Idle")

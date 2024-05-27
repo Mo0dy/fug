@@ -2,16 +2,16 @@ extends State
 
 class_name GrapplingHookState
 
-export var reaction_curve : Curve
-export var max_change_speed : float = 500
-export var reaction_curve_domain : float = 80
+@export var reaction_curve : Curve
+@export var max_change_speed : float = 500
+@export var reaction_curve_domain : float = 80
 
-onready var grappling_hook : GrapplingHook = owner
+@onready var grappling_hook : GrapplingHook = owner
 
 func _get_target_move_speed(target_distance : float) -> float:
 	if target_distance > reaction_curve_domain:
 		return max_change_speed
-	return reaction_curve.interpolate(target_distance / reaction_curve_domain) * max_change_speed
+	return reaction_curve.sample(target_distance / reaction_curve_domain) * max_change_speed
 
 func update_target_position(delta : float, target_position : Vector2) -> Vector2:
 	# todo: update angle and distance seperately

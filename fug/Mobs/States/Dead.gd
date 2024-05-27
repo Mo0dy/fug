@@ -1,7 +1,7 @@
 extends MobState
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
 	if mob.animator.animation != "Death":
 		mob.play_animation("Death")
 		mob.animator.rotate(PI)
@@ -9,8 +9,8 @@ func enter(controller_ : StateMachine) -> void:
 	mob.animator.z_index = -20
 	mob.hit_audio.play()
 	
-	_callback(funcref(self, "_stop_play"), 1)
-	_callback(funcref(self, "_set_death_colors"), 1)
+	_callback(self._stop_play, 1)
+	_callback(self._set_death_colors, 1)
 
 func _stop_play() -> void:
 	mob.hit_audio.stop()

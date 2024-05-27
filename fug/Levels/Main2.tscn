@@ -1,177 +1,123 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=15 format=3 uid="uid://c21wlhdig5ln0"]
 
-[ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Mobs/SmartMob/SmartMob.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Payable.gd" type="Script" id=3]
-[ext_resource path="res://BaseScripts/CameraFollower.gd" type="Script" id=4]
-[ext_resource path="res://BaseScripts/CameraFollower.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/VendingDash.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://BaseScripts/Spawnpoint.gd" type="Script" id=8]
-[ext_resource path="res://BaseScripts/CameraShake.gd" type="Script" id=9]
-[ext_resource path="res://Objects/Box.gd" type="Script" id=10]
-[ext_resource path="res://Assets/Light.png" type="Texture" id=11]
-[ext_resource path="res://Objects/Box.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=14]
-[ext_resource path="res://BaseScripts/Spawnpoint.tscn" type="PackedScene" id=15]
-[ext_resource path="res://UI/MoneyLabel.gd" type="Script" id=16]
-[ext_resource path="res://BaseScripts/LevelManager.gd" type="Script" id=17]
+[ext_resource type="PackedScene" path="res://BaseScripts/SpawnPoint.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://b6cjfbqh5mcv4" path="res://BaseScripts/WaveSystem.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dgyp5t37dwvw5" path="res://BaseScripts/CameraFollower.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://y7gksq8cp8b" path="res://Objects/VendingDash.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://mwiq7obbxq4r" path="res://Player/Player.tscn" id="7"]
+[ext_resource type="Script" path="res://BaseScripts/CameraShake.gd" id="9"]
+[ext_resource type="PackedScene" path="res://Objects/Box.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://x2nhs72fe8ed" path="res://Objects/Door.tscn" id="14"]
+[ext_resource type="Script" path="res://UI/MoneyLabel.gd" id="16"]
+[ext_resource type="Script" path="res://BaseScripts/LevelManager.gd" id="17"]
 
-[sub_resource type="SegmentShape2D" id=1]
-a = Vector2( -838.515, -526.202 )
-b = Vector2( -843.037, 614.854 )
+[sub_resource type="SegmentShape2D" id="1"]
+a = Vector2(-838.515, -526.202)
+b = Vector2(-843.037, 614.854)
 
-[sub_resource type="SegmentShape2D" id=2]
-a = Vector2( -852.081, -494.548 )
-b = Vector2( 881.578, -491.924 )
+[sub_resource type="SegmentShape2D" id="2"]
+a = Vector2(-852.081, -494.548)
+b = Vector2(881.578, -491.924)
 
-[sub_resource type="SegmentShape2D" id=3]
-a = Vector2( 841.142, -509.505 )
-b = Vector2( 842.9, 620.945 )
+[sub_resource type="SegmentShape2D" id="3"]
+a = Vector2(841.142, -509.505)
+b = Vector2(842.9, 620.945)
 
-[sub_resource type="SegmentShape2D" id=4]
-a = Vector2( 878.062, 589.299 )
-b = Vector2( -908.155, 587.541 )
+[sub_resource type="SegmentShape2D" id="4"]
+a = Vector2(878.062, 589.299)
+b = Vector2(-908.155, 587.541)
 
 [node name="Main2" type="Node2D"]
-script = ExtResource( 17 )
+script = ExtResource("17")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 light_mask = 0
-margin_left = 502.127
-margin_top = 12.956
-margin_right = 542.127
-margin_bottom = 26.956
+offset_left = 502.127
+offset_top = 12.956
+offset_right = 542.127
+offset_bottom = 26.956
 text = "test"
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("16")
 
-[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 7 )]
-position = Vector2( 50.1047, -18.0821 )
-skew = 4.37114e-08
-collision_layer = 2
-collision_mask = 5
-script = ExtResource( 1 )
+[node name="Player" parent="." instance=ExtResource("7")]
+position = Vector2(50.1047, -18.0821)
 
-[node name="CameraFollower" type="Node2D" parent="Player" instance=ExtResource( 5 )]
-script = ExtResource( 4 )
+[node name="CameraFollower" parent="Player" instance=ExtResource("5")]
 
 [node name="Camera2D" type="Camera2D" parent="Player/CameraFollower"]
-current = true
-zoom = Vector2( 0.5, 0.5 )
-smoothing_enabled = true
-script = ExtResource( 9 )
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+script = ExtResource("9")
 
-[node name="ShadowLight" type="Light2D" parent="Player"]
-position = Vector2( 0.723709, -0.513878 )
-skew = 4.37114e-08
-texture = ExtResource( 11 )
-color = Color( 0, 0, 0, 1 )
+[node name="ShadowLight" type="PointLight2D" parent="Player"]
+position = Vector2(0.723709, -0.513878)
+color = Color(0, 0, 0, 1)
 energy = 0.0
-mode = 2
 range_layer_max = 1
 range_item_cull_mask = 4
 shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0.737255 )
-shadow_filter = 5
+shadow_color = Color(0, 0, 0, 0.737255)
 shadow_filter_smooth = 1.5
 shadow_item_cull_mask = 4
 
-[node name="CullLight" type="Light2D" parent="Player"]
-position = Vector2( 0.326492, -0.513878 )
-skew = 4.37114e-08
-texture = ExtResource( 11 )
-mode = 3
+[node name="CullLight" type="PointLight2D" parent="Player"]
+position = Vector2(0.326492, -0.513878)
 range_layer_max = 1
 range_item_cull_mask = 2
 shadow_enabled = true
-shadow_color = Color( 1, 1, 1, 0 )
+shadow_color = Color(1, 1, 1, 0)
 shadow_filter = 2
 shadow_filter_smooth = 13.0
 
-[node name="Spawnpoints" type="Node" parent="."]
-
-[node name="Spawnpoint" type="Node2D" parent="Spawnpoints" instance=ExtResource( 15 )]
-position = Vector2( -227.631, 116.063 )
-z_index = -20
-script = ExtResource( 8 )
-mob_scene = ExtResource( 2 )
-spawn_time = 0.5
-spawn_amount = 2
-endless_spawn = true
-
-[node name="Spawnpoint2" type="Node2D" parent="Spawnpoints" instance=ExtResource( 15 )]
-position = Vector2( 280.86, -161.18 )
-z_index = -20
-script = ExtResource( 8 )
-mob_scene = ExtResource( 2 )
-spawn_time = 0.5
-endless_spawn = true
-
 [node name="LevelBoundry" type="StaticBody2D" parent="."]
-skew = 4.37114e-08
 collision_layer = 4
 collision_mask = 7
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelBoundry"]
-position = Vector2( 555.695, 32.8085 )
-shape = SubResource( 1 )
+position = Vector2(555.695, 32.8085)
+shape = SubResource("1")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelBoundry"]
-position = Vector2( 176.346, 278.873 )
-shape = SubResource( 2 )
+position = Vector2(176.346, 278.873)
+shape = SubResource("2")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="LevelBoundry"]
-position = Vector2( -500.33, -34.8591 )
-shape = SubResource( 3 )
+position = Vector2(-500.33, -34.8591)
+shape = SubResource("3")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="LevelBoundry"]
-position = Vector2( 59.4654, -422.41 )
-shape = SubResource( 4 )
+position = Vector2(59.4654, -422.41)
+shape = SubResource("4")
 
 [node name="Walls" type="StaticBody2D" parent="."]
-skew = 4.37114e-08
 collision_layer = 4
 collision_mask = 3
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="DebugNode" type="Node2D" parent="."]
 visible = false
-skew = 4.37114e-08
 
-[node name="Sprite" type="Sprite" parent="DebugNode"]
-scale = Vector2( 0.2, 0.2 )
+[node name="Sprite2D" type="Sprite2D" parent="DebugNode"]
+scale = Vector2(0.2, 0.2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -36.006
 autoplay = true
 
-[node name="Box" type="KinematicBody2D" parent="." instance=ExtResource( 12 )]
-position = Vector2( -46.2134, -35.2102 )
-skew = 4.37114e-08
-z_index = -10
-collision_mask = 0
-script = ExtResource( 10 )
+[node name="Box" parent="." instance=ExtResource("12")]
+position = Vector2(-46.2134, -35.2102)
 
-[node name="Door" type="Node2D" parent="." instance=ExtResource( 14 )]
-position = Vector2( 274.124, -40.0406 )
+[node name="Door" parent="." instance=ExtResource("14")]
+position = Vector2(274.124, -40.0406)
 rotation = 1.12289
-scale = Vector2( 0.2, 0.2 )
-script = ExtResource( 3 )
+scale = Vector2(0.2, 0.2)
 
-[node name="Payable" type="Node2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 161.812, 62.7177 )
-scale = Vector2( 0.2, 0.2 )
-script = ExtResource( 3 )
-[connection signal="bought" from="Door" to="Door/DoorProper" method="_on_Door_bought"]
-[connection signal="bought" from="Payable" to="Payable/VendingMachine" method="_on_Payable_bought"]
+[node name="Payable" parent="." instance=ExtResource("6")]
+position = Vector2(161.812, 62.7177)
+scale = Vector2(0.2, 0.2)
+
+[node name="WaveSystem" parent="." instance=ExtResource("3")]
+
+[node name="SpawnPoint" parent="WaveSystem" instance=ExtResource("1")]
+position = Vector2(179.171, -130.255)

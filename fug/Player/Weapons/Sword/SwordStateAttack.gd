@@ -1,29 +1,30 @@
 extends State
 
-export var sweep := -PI
-export var sweep_time : float = 0.2
-export var windup_time : float = 0.2
+@export var sweep := -PI
+@export var sweep_time : float = 0.2
+@export var windup_time : float = 0.2
 
 var _attacking := false
 
-onready var _sword : Sword = owner as Sword
+@onready var _sword : Sword = owner as Sword
 
 func enter(collider_ : StateMachine) -> void:
-	.enter(collider_)
+	super.enter(collider_)
 	_attacking = false
-	_callback(funcref(self, "_start_attack"), windup_time)
+	_callback(self._start_attack, windup_time)
 	_audio_effect()
 
 func leave() -> void:
-	.leave()
+	super.leave()
 	_sword.collider_attack.set_deferred("disabled", true)
-	_sword.hit_area.disconnect("body_entered", self, "_on_HitArea_body_entered")
+	if _sword.hit_area.is_connected("body_entered", Callable(self, "_on_HitArea_body_entered")):
+		_sword.hit_area.disconnect("body_entered", Callable(self, "_on_HitArea_body_entered"))
 	_sword.attack_done()
 
 func _start_attack() -> void:
 	_sword.collider_attack.rotation = 0
 	_sword.collider_attack.set_deferred("disabled", false)
-	_sword.hit_area.connect("body_entered", self, "_on_HitArea_body_entered")
+	_sword.hit_area.connect("body_entered", Callable(self, "_on_HitArea_body_entered"))
 	_attacking = true
 
 func physics_process(delta: float) -> void:
@@ -43,5 +44,5 @@ func _on_HitArea_body_entered(body : Actor) -> void:
 func _audio_effect() -> void:
 	_sword.attack_audio.play()
 	# HACK: just use a better track:
-	yield(get_tree().create_timer(0.2), "timeout")
+	await get_tree().create_timer(0.2).timeout
 	_sword.attack_audio.stop()

@@ -1,4 +1,4 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -6,4 +6,4 @@ func _ready():
 
 
 func _on_Start_pressed():
-	GameManager.scene_changer.change_scene("res://UI/MainMenu.tscn")
+	GameManager.scene_changer.change_to_main_menu()

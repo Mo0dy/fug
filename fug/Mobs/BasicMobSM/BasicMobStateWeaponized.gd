@@ -2,16 +2,16 @@ extends State
 
 # export var min_kill_velocity = 200
 
-onready var _mob : BasicMob = owner as BasicMob
+@onready var _mob : BasicMob = owner as BasicMob
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
 	_mob.play_animation("Idle")
 	_mob.body_weapon.attack()
 	_mob.movement_controller.enabled = false
 
 func leave() -> void:
-	.leave()
+	super.leave()
 	_mob.movement_controller.enabled = true
 	_mob.body_weapon.interrupt_attack()
 

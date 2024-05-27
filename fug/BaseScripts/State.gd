@@ -25,7 +25,7 @@ func process(delta : float) -> void:
 	for c in to_remove:
 		_callbacks.erase(c)
 
-func _callback(callback : FuncRef, time : float, arguments : Array=[]) -> void:
+func _callback(callback : Callable, time : float, arguments : Array=[]) -> void:
 	# adds timed callback function to this state that will be revoked by
 	# enter()
 	self._callbacks.append(Callback.new(time, callback, arguments))
@@ -34,11 +34,11 @@ class Callback:
 	# Used to do timings that can be cleared again
 	# Opposed to coroutines
 	var _end_time : float
-	var _callback : FuncRef
+	var _callback : Callable
 	var _arguments : Array
 	var _time : float = 0
 	
-	func _init(time : float, callback : FuncRef, arguments : Array) -> void:
+	func _init(time : float, callback : Callable, arguments : Array) -> void:
 		_end_time = time
 		_callback = callback
 		_arguments = arguments
@@ -46,6 +46,6 @@ class Callback:
 	func update(delta : float) -> bool:
 		_time += delta
 		if _time >= _end_time:
-			_callback.call_funcv(_arguments)
+			_callback.callv(_arguments)
 			return true
 		return false

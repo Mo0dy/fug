@@ -1,6 +1,7 @@
 extends TextureRect
 
-export var first_level_path : String 
+var first_level: PackedScene = preload("res://Levels/Main.tscn")
 
 func _on_New_Game_pressed():
-	GameManager.scene_changer.change_scene(first_level_path)
+	GameManager.scene_changer.change_scene(first_level)
+	pass

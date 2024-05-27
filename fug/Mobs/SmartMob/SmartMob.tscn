@@ -13,11 +13,11 @@
 [ext_resource path="res://Mobs/BasicMobSM/BasicMobStateTarget.gd" type="Script" id=12]
 [ext_resource path="res://Mobs/BasicMobSM/BasicMobStateWalk.gd" type="Script" id=13]
 [ext_resource path="res://Mobs/BasicMobSM/BasicMobStateWeaponized.gd" type="Script" id=14]
-[ext_resource path="res://Mobs/Assets/sprBoss1Attack_strip5.png" type="Texture" id=16]
-[ext_resource path="res://Mobs/Assets/sprBoss1GetUp_strip8.png" type="Texture" id=17]
-[ext_resource path="res://Mobs/Assets/sprBoss1Walk_strip8.png" type="Texture" id=18]
+[ext_resource path="res://Mobs/Assets/sprBoss1Attack_strip5.png" type="Texture2D" id=16]
+[ext_resource path="res://Mobs/Assets/sprBoss1GetUp_strip8.png" type="Texture2D" id=17]
+[ext_resource path="res://Mobs/Assets/sprBoss1Walk_strip8.png" type="Texture2D" id=18]
 [ext_resource path="res://Assets/music/BiteCreakBloodJuicy_002.wav" type="AudioStream" id=19]
-[ext_resource path="res://Mobs/Assets/sprBoss1Dead.png" type="Texture" id=20]
+[ext_resource path="res://Mobs/Assets/sprBoss1Dead.png" type="Texture2D" id=20]
 [ext_resource path="res://Mobs/SmartMob/SmartMob.gd" type="Script" id=21]
 [ext_resource path="res://Mobs/BasicMobSM/SmartMobStateIdle.gd" type="Script" id=22]
 
@@ -157,14 +157,14 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[node name="SmartMob" type="KinematicBody2D"]
+[node name="SmartMob" type="CharacterBody2D"]
 script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.996498, 0.664333 )
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 z_index = -10
 frames = SubResource( 24 )

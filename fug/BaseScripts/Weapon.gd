@@ -5,16 +5,16 @@ class_name Weapon
 signal hit
 signal done
 
-export var attack_time : float = 0.2
+@export var attack_time : float = 0.2
 
 var _attacking := false
 var _attack_time : float
 
-onready var _collider : CollisionShape2D = $Area
+@onready var _collider : CollisionShape2D = $Area3D
 
 func _ready() -> void:
 	_collider.disabled = true
-	connect("body_entered", self, "_on_body_entered")
+	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _process(delta : float) -> void:
 	if not _attacking: return
@@ -30,7 +30,7 @@ func _on_body_entered(body: Node) -> void:
 	# Maybe this should be replaced by some sort of hittable interface / class
 	if body.has_method("hit"):
 		body.hit()
-		emit_signal("hit")
+		hit.emit()
 
 func attack() -> void:
 	_collider.set_deferred("disabled", false)
@@ -40,4 +40,4 @@ func attack() -> void:
 func stop_attack() -> void:
 	_attacking = false
 	_collider.set_deferred("disabled", true)
-	emit_signal("done")
+	done.emit()

@@ -1,21 +1,21 @@
 extends MobState
 
-export var friction : float = 600
-export var hit_velocity_loss : float = 10
-export var min_kill_velocity = 200
+@export var friction : float = 600
+@export var hit_velocity_loss : float = 10
+@export var min_kill_velocity = 200
 
 var _speed : Vector2
 
 func enter(controller_ : StateMachine) -> void:
-	.enter(controller_)
+	super.enter(controller_)
 	mob.animator.rotate(PI)
 	mob.play_animation("Death")
 	# disable collision with other mobs
 	# Don't do deferred otherwise they can collide with mobs in the first frame of movement
-	mob.set_collision_layer_bit(2, 0)
-	mob.set_collision_mask_bit(2, 0)
-	mob.set_collision_mask_bit(1, 0)
-	mob.set_collision_layer_bit(1, 0)
+	mob.set_collision_layer_value(2, 0)
+	mob.set_collision_mask_value(2, 0)
+	mob.set_collision_mask_value(1, 0)
+	mob.set_collision_layer_value(1, 0)
 	
 	mob.shove_collider.set_deferred("disabled", false)
 	mob.audio.play()
@@ -24,7 +24,7 @@ func init_shove(direction : Vector2, shove_strength : float) -> void:
 	_speed = direction.normalized() * shove_strength
 
 func leave() -> void:
-	.leave()
+	super.leave()
 	mob.shove_collider.set_deferred("disabled", true)
 
 func physics_process(delta : float) -> void:

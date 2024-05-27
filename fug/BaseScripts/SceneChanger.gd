@@ -4,9 +4,11 @@ class_name SceneChanger
 
 signal scene_changed()
 
-func change_scene(path : String, delay : float = 0) -> void:
-	yield(get_tree().create_timer(delay), "timeout")
-	get_tree().change_scene(path)
+var menu_scene: PackedScene = preload("res://UI/MainMenu.tscn")
+
+func change_scene(scene: PackedScene, delay : float = 0) -> void:
+	await get_tree().create_timer(delay).timeout
+	get_tree().change_scene_to_packed(scene)
 
 func change_to_main_menu(delay : float = 0) -> void:
-	change_scene("res://UI/MainMenu.tscn", delay)
+	await change_scene(menu_scene, delay)

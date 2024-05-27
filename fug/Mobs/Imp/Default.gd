@@ -1,6 +1,6 @@
 extends State
 
-onready var imp : Imp = owner
+@onready var imp : Imp = owner
 var target = null
 const SPEED = 300
 

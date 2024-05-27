@@ -1,19 +1,16 @@
 extends PlayerState
 
 # For now this mode can only be accessed via attack -> dash
-export var shove_strength : float = 480
-export var dash_time : float = 0.5
-export var dash_chain_multiplier : float = 2
+@export var shove_strength : float = 480
+@export var dash_time : float = 0.5
+@export var dash_chain_multiplier : float = 2
 
-# the distance moved through the curve (normalized)
-var _curve_position : float
-
-onready var _sound_shove := $SoundShove
+@onready var _sound_shove := $SoundShove
 
 func enter(controller_ : StateMachine) -> void:
 	# HACK: there should be a better way to do these references
-	player.weapon.dash_attack(funcref(self, "_on_Sword_hit"))
-	.enter(controller_)
+	player.weapon.dash_attack(self._on_Sword_hit)
+	super.enter(controller_)
 	player.play_animation("Shove")
 	var direction := (player.get_global_mouse_position() - player.global_position).normalized()
 	
@@ -22,12 +19,12 @@ func enter(controller_ : StateMachine) -> void:
 	else:
 		player.movement_controller.dash(direction, dash_time)
 	player.movement_controller.body_target = direction
-	player.movement_controller.connect("state_change", self, "on_Player_state_change")
+	player.movement_controller.connect("state_change", Callable(self, "on_Player_state_change"))
 
 func leave() -> void:
-	.leave()
+	super.leave()
 	# disconnect before changing player state
-	player.movement_controller.disconnect("state_change", self, "on_Player_state_change")
+	player.movement_controller.disconnect("state_change", Callable(self, "on_Player_state_change"))
 	player.movement_controller.change_state(PlayerDefaultMC.MOVING)
 	player.weapon.interrupt_attack()
 	

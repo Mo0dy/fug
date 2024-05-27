@@ -1,169 +1,203 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=26 format=3 uid="uid://ba78wioxgxd1w"]
 
-[ext_resource path="res://Assets/main_menu_assets/background.png" type="Texture" id=1]
-[ext_resource path="res://Assets/fonts/pixel_font.TTF" type="DynamicFontData" id=2]
-[ext_resource path="res://UI/SplashScreen.gd" type="Script" id=3]
-[ext_resource path="res://Assets/main_menu_assets/fire.png" type="Texture" id=4]
-[ext_resource path="res://Assets/main_menu_assets/backgroundNoise.wav" type="AudioStream" id=5]
+[ext_resource type="Texture2D" uid="uid://d22wo41li1afd" path="res://Assets/main_menu_assets/background.png" id="1"]
+[ext_resource type="FontFile" uid="uid://hw7g1k51iv4h" path="res://Assets/fonts/pixel_font.TTF" id="2"]
+[ext_resource type="Script" path="res://UI/SplashScreen.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://cv5mfktj46g10" path="res://Assets/main_menu_assets/fire.png" id="4"]
+[ext_resource type="AudioStream" uid="uid://c5tuyqgejns3f" path="res://Assets/main_menu_assets/backgroundNoise.wav" id="5"]
 
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 778, 378 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 778, 378)
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 778, 0, 778, 378 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("1")
+region = Rect2(778, 0, 778, 378)
 
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1556, 0, 778, 378 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("1")
+region = Rect2(1556, 0, 778, 378)
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 2334, 0, 778, 378 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("1")
+region = Rect2(2334, 0, 778, 378)
 
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 3112, 0, 778, 378 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("1")
+region = Rect2(3112, 0, 778, 378)
 
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 3890, 0, 778, 378 )
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("1")
+region = Rect2(3890, 0, 778, 378)
 
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 4668, 0, 778, 378 )
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("1")
+region = Rect2(4668, 0, 778, 378)
 
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 5446, 0, 778, 378 )
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("1")
+region = Rect2(5446, 0, 778, 378)
 
-[sub_resource type="SpriteFrames" id=9]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+[sub_resource type="SpriteFrames" id="9"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("5")
+}, {
+"duration": 1.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}, {
+"duration": 1.0,
+"texture": SubResource("8")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 6.0
-} ]
+}]
 
-[sub_resource type="DynamicFont" id=10]
-size = 36
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="10"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="Theme" id=11]
+[sub_resource type="Theme" id="11"]
 
-[sub_resource type="DynamicFont" id=12]
-size = 24
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="12"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 260, 260 )
+[sub_resource type="AtlasTexture" id="13"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 260, 260)
 
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 260, 0, 260, 260 )
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("4")
+region = Rect2(260, 0, 260, 260)
 
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 520, 0, 260, 260 )
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("4")
+region = Rect2(520, 0, 260, 260)
 
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 780, 0, 260, 260 )
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("4")
+region = Rect2(780, 0, 260, 260)
 
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1040, 0, 260, 260 )
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("4")
+region = Rect2(1040, 0, 260, 260)
 
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1300, 0, 260, 260 )
+[sub_resource type="AtlasTexture" id="18"]
+atlas = ExtResource("4")
+region = Rect2(1300, 0, 260, 260)
 
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1560, 0, 260, 260 )
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("4")
+region = Rect2(1560, 0, 260, 260)
 
-[sub_resource type="SpriteFrames" id=20]
-animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+[sub_resource type="SpriteFrames" id="20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("13")
+}, {
+"duration": 1.0,
+"texture": SubResource("14")
+}, {
+"duration": 1.0,
+"texture": SubResource("15")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("18")
+}, {
+"duration": 1.0,
+"texture": SubResource("19")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 10.0
-} ]
+}]
 
-[node name="SplashScreen" type="AnimatedSprite"]
-position = Vector2( -6.42375, -7.59171 )
-scale = Vector2( 1.33275, 1.6271 )
-frames = SubResource( 9 )
+[node name="SplashScreen" type="AnimatedSprite2D"]
+position = Vector2(-6.42375, -7.59171)
+scale = Vector2(1.33275, 1.6271)
+sprite_frames = SubResource("9")
 frame = 3
-playing = true
 centered = false
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="Title" type="Label" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -201.0
-margin_top = -18.5
-margin_right = 201.0
-margin_bottom = 18.5
-rect_pivot_offset = Vector2( -576.359, 84.2316 )
-custom_fonts/font = SubResource( 10 )
+offset_left = -201.0
+offset_top = -18.5
+offset_right = 201.0
+offset_bottom = 18.5
+pivot_offset = Vector2(-576.359, 84.2316)
+theme_override_fonts/font = SubResource("10")
 text = "The Dark Ages"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Start" type="Button" parent="."]
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -100.0
-margin_top = -100.0
-margin_right = 100.0
-margin_bottom = -100.0
-theme = SubResource( 11 )
-custom_fonts/font = SubResource( 12 )
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = -100.0
+theme = SubResource("11")
+theme_override_fonts/font = SubResource("12")
 text = "START"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Fire1" type="AnimatedSprite" parent="."]
-position = Vector2( 238.227, 265 )
-scale = Vector2( 0.392523, 0.392523 )
-frames = SubResource( 20 )
-frame = 5
-playing = true
+[node name="Fire1" type="AnimatedSprite2D" parent="."]
+position = Vector2(238.227, 265)
+scale = Vector2(0.392523, 0.392523)
+sprite_frames = SubResource("20")
+frame = 3
 
-[node name="Fire2" type="AnimatedSprite" parent="."]
-position = Vector2( 540.242, 265 )
-scale = Vector2( 0.392523, 0.392523 )
-frames = SubResource( 20 )
-frame = 5
-playing = true
+[node name="Fire2" type="AnimatedSprite2D" parent="."]
+position = Vector2(540.242, 265)
+scale = Vector2(0.392523, 0.392523)
+sprite_frames = SubResource("20")
+frame = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource("5")
 volume_db = -10.0
 autoplay = true
+
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]

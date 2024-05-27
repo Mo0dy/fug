@@ -6,7 +6,7 @@ const LAYER_WALLS : int = 4
 
 # Utility funcitons
 
-static func get_animation_time(animator : AnimatedSprite, animation : String) -> float:
+static func get_animation_time(animator : AnimatedSprite2D, animation : String) -> float:
 	# Returns the total animation time for the currently selected animation
 	var frames = animator.frames
 	return  frames.get_frame_count(animation) \

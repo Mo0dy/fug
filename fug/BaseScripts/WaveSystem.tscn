@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6cjfbqh5mcv4"]
+
+[ext_resource type="Script" path="res://BaseScripts/WaveSystem.gd" id="1"]
+
+[sub_resource type="Curve" id="1"]
+_data = [Vector2(0, 0), 0.0, 1.29105, 0, 0, Vector2(1, 1), 0.191379, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="2"]
+min_value = 1.0
+max_value = 10.0
+_data = [Vector2(0.00837989, 1), 0.0, 12.6254, 0, 0, Vector2(1, 10), 5.84755, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="3"]
+min_value = 20.0
+max_value = 150.0
+_data = [Vector2(0, 20), 0.0, 179.198, 0, 0, Vector2(1, 150), 52.5123, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="4"]
+min_value = 20.0
+max_value = 50.0
+_data = [Vector2(0, 20), 0.0, 27.931, 0, 0, Vector2(1, 50), 24.7414, 0.0, 0, 0]
+point_count = 2
+
+[node name="WaveSystem" type="Node"]
+script = ExtResource("1")
+difficulty_prop_curve = SubResource("1")
+health_curve = SubResource("2")
+wave_spawn_count_curve = SubResource("3")
+max_concurrent_enemies_curve = SubResource("4")
