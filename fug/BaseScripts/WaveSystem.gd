@@ -46,13 +46,12 @@ func _process(delta : float) -> void:
 	while spawn_changse > 0:
 		spawn_changse -= randf_range(0, 1)
 		if spawn_changse > 0:
-			_spawn_enemie()
+			_spawn_enemy()
 
-func _spawn_enemie():
+func _spawn_enemy():
 	if wave_spawn_count == 0: return
 	wave_spawn_count -= 1
 	# TODO: spawn enemie and let the level manager know.
-	print("spawn enemie")
 
 func next_wave() -> void:
 	wave_counter += 1

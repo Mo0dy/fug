@@ -8,7 +8,7 @@ const LAYER_WALLS : int = 4
 
 static func get_animation_time(animator : AnimatedSprite2D, animation : String) -> float:
 	# Returns the total animation time for the currently selected animation
-	var frames = animator.frames
+	var frames = animator.sprite_frames
 	return  frames.get_frame_count(animation) \
 			/ frames.get_animation_speed(animation) \
 			/ animator.speed_scale

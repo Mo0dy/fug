@@ -33,6 +33,7 @@ func process(delta : float) -> void:
 func physics_process(_delta: float) -> void:
 	# TODO: fixme
 	if not navigation_agent:
+		print("No navigation agent")
 		return
 	if not navigation_agent.is_navigation_finished():
 		var goal_pos = navigation_agent.get_next_path_position()

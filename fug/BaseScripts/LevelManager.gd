@@ -20,7 +20,7 @@ func _ready() -> void:
 	if wave_system:
 		wave_system.next_wave();
 
-func _on_Player_death() -> void:
+func _on_Player_death(_actor) -> void:
 	GameManager.scene_changer.change_to_main_menu(2)
 
 func register_mob(mob : Mob) -> void:

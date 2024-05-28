@@ -16,6 +16,7 @@ signal shoved
 func _ready() -> void:
 	_state_machine.connect("change_state", Callable(self, "_on_StateMachine_change_state"))
 
+
 func _on_StateMachine_change_state(last_state_name : String, new_state_name : String):
 	if new_state_name == "Dead":
 		death.emit()

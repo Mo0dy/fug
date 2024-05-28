@@ -127,7 +127,6 @@ shadow_filter_smooth = 13.0
 [node name="Spawnpoint" parent="Spawnpoints" instance=ExtResource("6")]
 position = Vector2(-360.911, 104.956)
 mob_scene = ExtResource("14")
-is_active = null
 spawn_time = 1.25
 spawn_amount = null
 endless_spawn = null
@@ -135,7 +134,6 @@ endless_spawn = null
 [node name="Spawnpoint2" parent="Spawnpoints" instance=ExtResource("6")]
 position = Vector2(644.206, -397.593)
 mob_scene = ExtResource("14")
-is_active = null
 spawn_time = 1.25
 spawn_amount = null
 endless_spawn = null
@@ -143,7 +141,6 @@ endless_spawn = null
 [node name="Spawnpoint3" parent="Spawnpoints" instance=ExtResource("6")]
 position = Vector2(-684.927, -257.474)
 mob_scene = ExtResource("14")
-is_active = null
 spawn_time = 1.25
 spawn_amount = null
 endless_spawn = null
@@ -151,7 +148,6 @@ endless_spawn = null
 [node name="Spawnpoint4" parent="Spawnpoints" instance=ExtResource("6")]
 position = Vector2(556.021, 231.89)
 mob_scene = ExtResource("14")
-is_active = null
 spawn_time = 1.25
 spawn_amount = null
 endless_spawn = null
@@ -159,7 +155,6 @@ endless_spawn = null
 [node name="Spawnpoint5" parent="Spawnpoints" instance=ExtResource("6")]
 position = Vector2(-153.808, -436.184)
 mob_scene = ExtResource("14")
-is_active = null
 spawn_time = 1.25
 spawn_amount = null
 endless_spawn = null
@@ -291,9 +286,6 @@ texture = ExtResource("1")
 volume_db = -36.006
 autoplay = true
 
-[node name="PathfindMob" parent="." instance=ExtResource("14")]
-position = Vector2(385.881, 362.654)
-
 [node name="Box" parent="." instance=ExtResource("10")]
 position = Vector2(-46.2134, -35.2102)
 
@@ -319,6 +311,9 @@ position = Vector2(0, 1.23869)
 navigation_polygon = SubResource("19")
 
 [node name="WaveSystem" parent="." instance=ExtResource("13_dbkhv")]
+
+[node name="PathfindMob" parent="." instance=ExtResource("14")]
+position = Vector2(114, -114)
 
 [editable path="Spawnpoints/Spawnpoint"]
 [editable path="Spawnpoints/Spawnpoint2"]
