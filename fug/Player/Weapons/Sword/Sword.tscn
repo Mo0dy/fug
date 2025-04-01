@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cak1be4rb3wtn"]
 
-[ext_resource type="Script" path="res://BaseScripts/StateMachine.gd" id="1"]
+[ext_resource type="Script" uid="uid://bld6o648oppau" path="res://BaseScripts/StateMachine.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://syy7nidfx0v6" path="res://Assets/music/sound2.wav" id="2"]
-[ext_resource type="Script" path="res://Player/Weapons/Sword/Sword.gd" id="3"]
-[ext_resource type="Script" path="res://Player/Weapons/Sword/SwordStateDefault.gd" id="4"]
-[ext_resource type="Script" path="res://Player/Weapons/Sword/SwordStateAttack.gd" id="5"]
-[ext_resource type="Script" path="res://Player/Weapons/Sword/SwordStateShove.gd" id="6"]
+[ext_resource type="Script" uid="uid://3am7sn4wkjgc" path="res://Player/Weapons/Sword/Sword.gd" id="3"]
+[ext_resource type="Script" uid="uid://wrmvwc1i8pyy" path="res://Player/Weapons/Sword/SwordStateDefault.gd" id="4"]
+[ext_resource type="Script" uid="uid://bqwvloitmqgvl" path="res://Player/Weapons/Sword/SwordStateAttack.gd" id="5"]
+[ext_resource type="Script" uid="uid://c5y7yfy5bi1xc" path="res://Player/Weapons/Sword/SwordStateShove.gd" id="6"]
 
 [node name="Sword" type="Node2D"]
 script = ExtResource("3")

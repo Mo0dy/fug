@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dn3fxutdv15ny"]
 
-[ext_resource type="Shader" path="res://Player/Weapons/GrapplingHook/GrapplingHook.gdshader" id="1"]
+[ext_resource type="Shader" uid="uid://bybu610v6hvs4" path="res://Player/Weapons/GrapplingHook/GrapplingHook.gdshader" id="1"]
 
 [resource]
 shader = ExtResource("1")

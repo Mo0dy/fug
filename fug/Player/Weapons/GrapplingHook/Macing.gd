@@ -14,8 +14,8 @@ var _angle_animation: AnimatedCurve
 
 func enter(controller_ : StateMachine) -> void:
 	super.enter(controller_)
-	# _distance_animation = AnimatedCurve.new(distance_curve, attack_time)
-	# _angle_animation = AnimatedCurve.new(angle_curve, attack_time, attack_angle)
+	_distance_animation = AnimatedCurve.new(distance_curve, attack_time)
+	_angle_animation = AnimatedCurve.new(angle_curve, attack_time, attack_angle)
 	_distance_animation.reset()
 	_angle_animation.reset()
 	_target_position = grappling_hook.get_global_mouse_position()

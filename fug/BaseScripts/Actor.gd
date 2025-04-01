@@ -67,3 +67,7 @@ func measure_distance(direction : Vector2, max_range : float = 10000) -> float:
 	if result.is_empty():
 		return INF
 	return result["position"].distance_to(global_position)
+
+# Actor status flags
+var status_is_frenzy: bool = false
+var status_is_zombie: bool = false

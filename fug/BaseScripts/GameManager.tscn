@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://n37umqrwcyj3"]
 
-[ext_resource type="Script" path="res://BaseScripts/GameManager.gd" id="1"]
-[ext_resource type="Script" path="res://BaseScripts/SceneChanger.gd" id="2"]
+[ext_resource type="Script" uid="uid://dlnkad6mr41yr" path="res://BaseScripts/GameManager.gd" id="1"]
+[ext_resource type="Script" uid="uid://dv4o2l6h6pss2" path="res://BaseScripts/SceneChanger.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://b6cjfbqh5mcv4" path="res://BaseScripts/WaveSystem.tscn" id="3_myf7a"]
 
 [sub_resource type="Curve" id="1"]

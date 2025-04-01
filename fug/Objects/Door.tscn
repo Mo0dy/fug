@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c5omkycw6i7wn" path="res://Objects/Payable.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://dkajeym051icv" path="res://Objects/Assets/door.png" id="2"]
-[ext_resource type="Script" path="res://Objects/Door.gd" id="3"]
+[ext_resource type="Script" uid="uid://dhdfjnfwecga4" path="res://Objects/Door.gd" id="3"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(626.968, 412.326)
@@ -24,7 +24,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyseh"]
 _data = {
-"FadeOut": SubResource("3")
+&"FadeOut": SubResource("3")
 }
 
 [sub_resource type="RectangleShape2D" id="2"]

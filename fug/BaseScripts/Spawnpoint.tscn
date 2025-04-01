@@ -1,16 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://bxs7knefipuv7"]
 
-[ext_resource path="res://BaseScripts/Spawnpoint.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Burrow.png" type="Texture2D" id=2]
+[ext_resource type="Script" uid="uid://yy1bkeasv52m" path="res://BaseScripts/Spawnpoint.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d0w7yjrx8t6t6" path="res://Assets/Burrow.png" id="2"]
 
 [node name="Spawnpoint" type="Node2D"]
 z_index = -20
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 2 )
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

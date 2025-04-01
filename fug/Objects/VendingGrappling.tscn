@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cscdv1i7pbh2s"]
 
 [ext_resource type="Texture2D" uid="uid://b7j60ahapgehu" path="res://Objects/Assets/vending_machines.png" id="1"]
-[ext_resource type="Script" path="res://Objects/VendingMachineHook.gd" id="2"]
+[ext_resource type="Script" uid="uid://b5nmyvr2igcad" path="res://Objects/VendingMachineHook.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://c5omkycw6i7wn" path="res://Objects/Payable.tscn" id="3"]
 
 [sub_resource type="RectangleShape2D" id="4"]
@@ -36,7 +36,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ewl7k"]
 _data = {
-"FadeOut": SubResource("2")
+&"FadeOut": SubResource("2")
 }
 
 [sub_resource type="RectangleShape2D" id="3"]

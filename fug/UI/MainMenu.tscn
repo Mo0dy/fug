@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://qqggckb0ueik"]
 
-[ext_resource type="Script" path="res://UI/MainMenu.gd" id="1"]
+[ext_resource type="Script" uid="uid://dpb1r7ji2k336" path="res://UI/MainMenu.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cv10nhl5ytggs" path="res://Assets/main_menu_assets/menu_image.png" id="2"]
 [ext_resource type="FontFile" uid="uid://hw7g1k51iv4h" path="res://Assets/fonts/pixel_font.TTF" id="3"]
 [ext_resource type="PackedScene" uid="uid://cstvupeueid2r" path="res://Levels/Main.tscn" id="3_a44ns"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("3")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -17,6 +20,9 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="2"]
 fallbacks = Array[Font]([ExtResource("3")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -26,6 +32,9 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="3"]
 fallbacks = Array[Font]([ExtResource("3")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -35,6 +44,9 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="4"]
 fallbacks = Array[Font]([ExtResource("3")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

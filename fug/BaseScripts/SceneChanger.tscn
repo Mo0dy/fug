@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cx3opuh5w1go4"]
 
-[ext_resource type="Script" path="res://BaseScripts/SceneChanger.gd" id="1"]
+[ext_resource type="Script" uid="uid://dv4o2l6h6pss2" path="res://BaseScripts/SceneChanger.gd" id="1"]
 
 [node name="SceneChanger" type="CanvasLayer"]
 script = ExtResource("1")

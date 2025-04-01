@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d22wo41li1afd" path="res://Assets/main_menu_assets/background.png" id="1"]
 [ext_resource type="FontFile" uid="uid://hw7g1k51iv4h" path="res://Assets/fonts/pixel_font.TTF" id="2"]
-[ext_resource type="Script" path="res://UI/SplashScreen.gd" id="3"]
+[ext_resource type="Script" uid="uid://btx6r5ljhy0xf" path="res://UI/SplashScreen.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://cv5mfktj46g10" path="res://Assets/main_menu_assets/fire.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://c5tuyqgejns3f" path="res://Assets/main_menu_assets/backgroundNoise.wav" id="5"]
 
