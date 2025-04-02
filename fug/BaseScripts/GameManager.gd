@@ -17,6 +17,9 @@ var _doing_animation := false
 
 @onready var scene_changer : SceneChanger = $SceneChanger
 
+func _ready() -> void:
+	DebugConsole.set_pause_on_open(true)
+
 func _process(delta: float) -> void:
 	if _doing_animation:
 		if Engine.time_scale == 0: return
