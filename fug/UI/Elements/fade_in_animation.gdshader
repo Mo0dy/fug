@@ -16,7 +16,7 @@ uniform float fade_range : hint_range(0.0, 1.0) = 0.02;
 // in order to get the canvas item UV the item size
 // needs to be passed into the shader.
 // https://github.com/godotengine/godot/issues/23210
-uniform vec2 size; 
+uniform vec2 size;
 
 varying vec2 iuv;
 
@@ -29,7 +29,7 @@ void vertex () {
 //  1) [0 .. fade_in_time] => Diagonal Fade-In (UV.x + UV.y from 0..2)
 //  2) [fade_in_time .. 1 - fade_out_time] => Fully visible
 //  3) [1 - fade_out_time .. 1] => Diagonal Fade-Out (UV.x + UV.y from 2..0)
-// 
+//
 // We create a separate rainbow "fringe zone" that is larger than `fade_range`
 // so that the color fringe extends beyond the normal fade boundary.
 // --------------------------------------------------------------
@@ -57,14 +57,14 @@ void fragment() {
         fade_value = 2.0 * ratio_in;
     } else if (progress < fade_in_time + middle_time) {
         // Middle: full coverage
-        fade_value = 2.0; 
+        fade_value = 2.0;
     } else {
         // Fade out: goes from 2..0 in diagonal space
         float start_out = fade_in_time + middle_time;
         float ratio_out = (progress - start_out) / fade_out_time; // 0..1
         fade_value = 2.0 * (1.0 - ratio_out);  // 2..0
     }
-	
+
 	float diagonal;
     // Diagonal coordinate: top-left ~0.0 → bottom-right ~2.0
 	if (progress > fade_in_time + middle_time) {
@@ -72,7 +72,7 @@ void fragment() {
 	} else {
 		diagonal = iuv.x + UV.y;
 	}
-    
+
     //--------------------------------------------------------------
     // 1) Compute the normal fade alpha based on 'fade_range'.
     //--------------------------------------------------------------
@@ -107,7 +107,7 @@ void fragment() {
     //      the diagonal.
     //--------------------------------------------------------------
     float frequency = 8.0;  // more stripes across the diagonal
-    float phase = 6.2831 * frequency * diagonal; 
+    float phase = 6.2831 * frequency * diagonal;
     vec3 rainbow_color = vec3(
         0.5 + 0.5 * sin(phase),
         0.5 + 0.5 * sin(phase + 2.094),   // +120°
@@ -117,11 +117,11 @@ void fragment() {
     //--------------------------------------------------------------
     // 5) Blend the base color with the rainbow in the fringe zone.
     //    - In the fully opaque zone, alpha_mask=1 => no rainbow.
-    //    - In the fully transparent zone, alpha=0 => no effect 
-    //      anyway, but we can see a bit of color near the edge 
+    //    - In the fully transparent zone, alpha=0 => no effect
+    //      anyway, but we can see a bit of color near the edge
     //      if the material behind it is visible.
     //--------------------------------------------------------------
-    // Let's blend in the rainbow where fringe_factor > 0. 
+    // Let's blend in the rainbow where fringe_factor > 0.
     // You can multiply fringe_factor by a constant to boost color.
     //--------------------------------------------------------------
     vec3 final_rgb = mix(base_color.rgb, rainbow_color, fringe_factor);

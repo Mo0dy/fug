@@ -15,12 +15,12 @@ float f(float c, float x) {
 
 void fragment() {
 	float x = FRAGCOORD.x * 6.28 * frequency + TIME * speed;
-	
+
 	float y = f(c1, x);
 	// y += f(c2, x);
 	// y += f(c3, x);
 	y /= n;
-	
+
 	vec2 mod_uv = vec2(UV.x, UV.y + y * amplitude);
 	COLOR = texture(TEXTURE, mod_uv);
 }

@@ -19,19 +19,27 @@ signal wave_ending(wave_count)
 @export var per_wave_health_increase : float = 0.10
 @export var per_wave_spawncount_increase : int = 10
 @export var per_wave_concurrent_enemies_increase : int = 2
-@export var max_concurrent_enemies : int = 80
+
+@export var wave_timeout_s: float = 10
 
 # TODO: this should probably also be a curve ffs
 @export var avg_per_second_spawns : float = 2
 
+@onready var spawnpoints : Array[Node] = get_children()
+
 var wave_counter : int = 0
 var is_wave_ongoing := false
+var wave_timeout_timer : Timer
 
 # hold the current difficulty settings per wave
 var difficulty_prop : float = 0
 var health : float = 0
 var wave_spawn_count : int = 0
 var concurrent_enemies : int = 0
+
+# needed since the mobds need a frame to be instantiated (and registered in the game manager)
+var last_frame_spawned : bool = false
+
 
 func _ready() -> void:
 	init()
@@ -41,17 +49,39 @@ func init() -> void:
 	is_wave_ongoing = false
 
 func _process(delta : float) -> void:
+	if not is_wave_ongoing:
+		return
+
+	if _is_wave_over():
+		end_wave()
+		return
+
+	last_frame_spawned = false
+
 	var spawn_changse = avg_per_second_spawns * delta
-	
 	while spawn_changse > 0:
 		spawn_changse -= randf_range(0, 1)
+		if not _can_spawn():
+			break
 		if spawn_changse > 0:
 			_spawn_enemy()
 
+func _is_wave_over() -> bool:
+	return (not last_frame_spawned) and wave_spawn_count == 0 and len(GameManager.level_manager.mobs) == 0
+
+func _can_spawn():
+	return is_wave_ongoing and wave_spawn_count > 0
+
 func _spawn_enemy():
-	if wave_spawn_count == 0: return
 	wave_spawn_count -= 1
-	# TODO: spawn enemie and let the level manager know.
+	last_frame_spawned = true
+	# HACK: works as long as most spawnpoints can spawn
+	for i in range(10):
+		var spawnpoint = spawnpoints[randi() % spawnpoints.size()]
+		if spawnpoint.can_spawn():
+			spawnpoint.spawn()
+			break
+
 
 func next_wave() -> void:
 	wave_counter += 1
@@ -73,9 +103,21 @@ func next_wave() -> void:
 		concurrent_enemies = int(max_concurrent_enemies_curve.interpolate_baked(1) + \
 								per_wave_concurrent_enemies_increase * wave_offset)
 	
+	print("Wave " + str(wave_counter) + " difficulty: " + str(difficulty_prop) + " health: " + str(health) + \
+			" wave_spawn_count: " + str(wave_spawn_count) + " concurrent_enemies: " + str(concurrent_enemies))
 	is_wave_ongoing = true
 	wave_starting.emit(wave_counter)
 
+	# TODO: maybe this should be somewhere else ... IDK
+	GameManager.level_manager.popup_text.display_text("Wave " + str(wave_counter), 2)
+
 func end_wave() -> void:
+	print("Wave " + str(wave_counter) + " ended")
 	is_wave_ongoing = false
 	wave_ending.emit(wave_counter)
+
+	GameManager.level_manager.popup_text.display_text("Wave " + str(wave_counter) + " ended", 2)
+
+	await get_tree().create_timer(wave_timeout_s).timeout
+
+	next_wave()

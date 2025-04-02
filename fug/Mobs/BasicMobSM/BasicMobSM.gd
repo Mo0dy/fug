@@ -11,6 +11,7 @@ class_name BasicMob
 @onready var body_weapon : BodyWeapon = $BodyWeapon
 
 func _ready() -> void:
+	super._ready()
 	body_weapon.ignore_actor(self)
 
 func die() -> void:

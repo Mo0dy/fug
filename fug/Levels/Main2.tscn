@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y7gksq8cp8b" path="res://Objects/VendingDash.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://mwiq7obbxq4r" path="res://Player/Player.tscn" id="7"]
 [ext_resource type="Script" uid="uid://b7stsdo5s8gn6" path="res://BaseScripts/CameraShake.gd" id="9"]
-[ext_resource type="PackedScene" path="res://Objects/Box.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://bf2vftgapftyk" path="res://Objects/Box.tscn" id="12"]
 [ext_resource type="PackedScene" uid="uid://x2nhs72fe8ed" path="res://Objects/Door.tscn" id="14"]
 [ext_resource type="Script" uid="uid://cohv3by8ry4ax" path="res://UI/MoneyLabel.gd" id="16"]
 [ext_resource type="Script" uid="uid://e3geh0il1edl" path="res://BaseScripts/LevelManager.gd" id="17"]

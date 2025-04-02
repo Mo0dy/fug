@@ -8,16 +8,16 @@ point_count = 2
 
 [sub_resource type="Curve" id="2"]
 _limits = [1.0, 10.0, 0.0, 1.0]
-_data = [Vector2(0.00837989, 1), 0.0, 12.6254, 0, 0, Vector2(1, 10), 5.84755, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 12.6254, 0, 0, Vector2(1, 10), 5.84755, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="3"]
-_limits = [20.0, 150.0, 0.0, 1.0]
+_limits = [1.0, 150.0, 0.0, 1.0]
 _data = [Vector2(0, 20), 0.0, 179.198, 0, 0, Vector2(1, 150), 52.5123, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="4"]
-_limits = [20.0, 50.0, 0.0, 1.0]
+_limits = [1.0, 50.0, 0.0, 1.0]
 _data = [Vector2(0, 20), 0.0, 27.931, 0, 0, Vector2(1, 50), 24.7414, 0.0, 0, 0]
 point_count = 2
 

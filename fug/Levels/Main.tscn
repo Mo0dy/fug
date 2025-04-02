@@ -1,11 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://cstvupeueid2r"]
+[gd_scene load_steps=39 format=3 uid="uid://cstvupeueid2r"]
 
 [ext_resource type="Texture2D" uid="uid://bxse0voxioovq" path="res://Assets/Background.jpg" id="1"]
 [ext_resource type="PackedScene" uid="uid://mwiq7obbxq4r" path="res://Player/Player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c6rtunkcbn61t" path="res://UI/Elements/PopupText.tscn" id="2_r7fn1"]
 [ext_resource type="PackedScene" uid="uid://dgyp5t37dwvw5" path="res://BaseScripts/CameraFollower.tscn" id="3"]
 [ext_resource type="Script" uid="uid://e3geh0il1edl" path="res://BaseScripts/LevelManager.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://bxs7knefipuv7" path="res://BaseScripts/Spawnpoint.tscn" id="6"]
-[ext_resource type="Script" uid="uid://cohv3by8ry4ax" path="res://UI/MoneyLabel.gd" id="7"]
 [ext_resource type="PackedScene" uid="uid://y7gksq8cp8b" path="res://Objects/VendingDash.tscn" id="8"]
 [ext_resource type="Script" uid="uid://b7stsdo5s8gn6" path="res://BaseScripts/CameraShake.gd" id="9"]
 [ext_resource type="PackedScene" uid="uid://bf2vftgapftyk" path="res://Objects/Box.tscn" id="10"]
@@ -13,6 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://cscdv1i7pbh2s" path="res://Objects/VendingGrappling.tscn" id="13"]
 [ext_resource type="PackedScene" uid="uid://b6cjfbqh5mcv4" path="res://BaseScripts/WaveSystem.tscn" id="13_dbkhv"]
 [ext_resource type="PackedScene" uid="uid://brapdccfdcpx4" path="res://Mobs/PathfindMob/PathfindMob.tscn" id="14"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r7fn1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r7fn1"]
+noise = SubResource("FastNoiseLite_r7fn1")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ys0u"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7ys0u"]
+noise = SubResource("FastNoiseLite_7ys0u")
 
 [sub_resource type="SegmentShape2D" id="1"]
 a = Vector2(-838.515, -526.202)
@@ -78,19 +88,23 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedIn
 outlines = Array[PackedVector2Array]([PackedVector2Array(-812.534, -466.101, -130.858, -475.776, -127.445, -422.309, -88.7667, -365.43, 64.2395, -375.668, 93.2481, -422.878, 89.8354, -467.813, 530.867, -471.208, 536.4, -359.891, 625.208, -384.018, 622.641, -438.945, 730.442, -425.085, 734.549, -472.825, 819.763, -477.959, 824.415, 572.458, 381.395, 570.608, 383.295, 260.91, 296.845, 176.361, 235.096, 177.311, 236.046, 228.61, 185.696, 231.46, 185.696, 359.709, 285.445, 366.359, 282.467, 572.894, -822.279, 565.006, -813.476, -126.645, -747.502, -121.758, -626.308, -134.301, -629.566, -222.267, -724.863, -223.896, -696.499, -339.259, -746.553, -445.624, -814.24, -449.606), PackedVector2Array(201.335, -370.815, 185.409, -148.984, 311.113, -141.021, 319.076, -384.466), PackedVector2Array(-60.1905, 30.6988, 67.9279, 31.9929, 67.9279, 166.258, -64.72, 162.053), PackedVector2Array(-322.054, -333.296, -213.114, -233.435, -315.769, -137.065, -469.402, -128.685, -467.307, -188.043), PackedVector2Array(-316.107, 318.843, -239.106, 324.49, -218.572, 227.469, -222.25, -26.3763, -675.363, -23.7226, -654.797, 50.58, -599.734, 71.8093, -320.435, 71.1459), PackedVector2Array(-591.894, 217.528, -567.346, 373.797, -487.715, 367.81, -447.001, 472.588, -658.953, 471.391, -680.507, 209.146), PackedVector2Array(35.2968, 340.027, 10.8551, 484.582, -133.001, 458.744, -104.37, 312.792), PackedVector2Array(490.512, 464.384, 626.503, 466.589, 625.033, 362.942, 726.475, 365.882, 724.269, 229.156, 641.205, 232.096, 642.675, 280.612, 538.292, 280.612, 536.822, 378.379, 492.717, 379.114), PackedVector2Array(623.135, -68.8958, 621.429, 26.0932, 727.225, 34.0563, 726.088, 112.55, 519.046, 120.513, 432.02, 39.1755, 431.451, -17.7041, 484.349, -18.8417, 484.918, -72.8774), PackedVector2Array(521.616, -177.415, 744.919, -190.249, 737.732, -262.629, 665.864, -275.976, 601.697, -264.683, 544.716, -266.736, 523.67, -235.936)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[node name="Main" type="Node"]
+[sub_resource type="Curve" id="Curve_r7fn1"]
+_limits = [1.0, 150.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 150), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_7ys0u"]
+_limits = [2.0, 150.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 150), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Main" type="Node" node_paths=PackedStringArray("popup_text")]
 script = ExtResource("5")
+popup_text = NodePath("CanvasLayer/PopupText")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-light_mask = 0
-offset_left = 502.127
-offset_top = 12.956
-offset_right = 542.127
-offset_bottom = 26.956
-text = "test"
-script = ExtResource("7")
+[node name="PopupText" parent="CanvasLayer" instance=ExtResource("2_r7fn1")]
 
 [node name="Player" parent="." instance=ExtResource("2")]
 position = Vector2(50.1047, -18.0821)
@@ -112,6 +126,8 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.737255)
 shadow_filter_smooth = 1.5
 shadow_item_cull_mask = 4
+texture = SubResource("NoiseTexture2D_r7fn1")
+texture_scale = 4.1
 
 [node name="CullLight" type="PointLight2D" parent="Player"]
 position = Vector2(0.326492, -0.513878)
@@ -121,43 +137,9 @@ shadow_enabled = true
 shadow_color = Color(1, 1, 1, 0)
 shadow_filter = 2
 shadow_filter_smooth = 13.0
+texture = SubResource("NoiseTexture2D_7ys0u")
 
 [node name="Spawnpoints" type="Node" parent="."]
-
-[node name="Spawnpoint" parent="Spawnpoints" instance=ExtResource("6")]
-position = Vector2(-360.911, 104.956)
-mob_scene = ExtResource("14")
-spawn_time = 1.25
-spawn_amount = null
-endless_spawn = null
-
-[node name="Spawnpoint2" parent="Spawnpoints" instance=ExtResource("6")]
-position = Vector2(644.206, -397.593)
-mob_scene = ExtResource("14")
-spawn_time = 1.25
-spawn_amount = null
-endless_spawn = null
-
-[node name="Spawnpoint3" parent="Spawnpoints" instance=ExtResource("6")]
-position = Vector2(-684.927, -257.474)
-mob_scene = ExtResource("14")
-spawn_time = 1.25
-spawn_amount = null
-endless_spawn = null
-
-[node name="Spawnpoint4" parent="Spawnpoints" instance=ExtResource("6")]
-position = Vector2(556.021, 231.89)
-mob_scene = ExtResource("14")
-spawn_time = 1.25
-spawn_amount = null
-endless_spawn = null
-
-[node name="Spawnpoint5" parent="Spawnpoints" instance=ExtResource("6")]
-position = Vector2(-153.808, -436.184)
-mob_scene = ExtResource("14")
-spawn_time = 1.25
-spawn_amount = null
-endless_spawn = null
 
 [node name="LevelBoundry" type="StaticBody2D" parent="."]
 visible = false
@@ -311,12 +293,31 @@ position = Vector2(0, 1.23869)
 navigation_polygon = SubResource("19")
 
 [node name="WaveSystem" parent="." instance=ExtResource("13_dbkhv")]
+health_curve = SubResource("Curve_r7fn1")
+wave_spawn_count_curve = SubResource("Curve_7ys0u")
 
-[node name="PathfindMob" parent="." instance=ExtResource("14")]
-position = Vector2(114, -114)
+[node name="Spawnpoint" parent="WaveSystem" instance=ExtResource("6")]
+position = Vector2(-360.911, 104.956)
+mob_scene = ExtResource("14")
 
-[editable path="Spawnpoints/Spawnpoint"]
-[editable path="Spawnpoints/Spawnpoint2"]
-[editable path="Spawnpoints/Spawnpoint3"]
-[editable path="Spawnpoints/Spawnpoint4"]
-[editable path="Spawnpoints/Spawnpoint5"]
+[node name="Spawnpoint2" parent="WaveSystem" instance=ExtResource("6")]
+position = Vector2(644.206, -397.593)
+mob_scene = ExtResource("14")
+
+[node name="Spawnpoint3" parent="WaveSystem" instance=ExtResource("6")]
+position = Vector2(-684.927, -257.474)
+mob_scene = ExtResource("14")
+
+[node name="Spawnpoint4" parent="WaveSystem" instance=ExtResource("6")]
+position = Vector2(556.021, 231.89)
+mob_scene = ExtResource("14")
+
+[node name="Spawnpoint5" parent="WaveSystem" instance=ExtResource("6")]
+position = Vector2(-153.808, -436.184)
+mob_scene = ExtResource("14")
+
+[editable path="WaveSystem/Spawnpoint"]
+[editable path="WaveSystem/Spawnpoint2"]
+[editable path="WaveSystem/Spawnpoint3"]
+[editable path="WaveSystem/Spawnpoint4"]
+[editable path="WaveSystem/Spawnpoint5"]
