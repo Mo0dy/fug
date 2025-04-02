@@ -4,6 +4,10 @@ class_name Mob
 
 @export var perception_range : float = 500
 
+# gets called when mob is spawned by a spawnpoint
+func on_spawn(health_mod: float, _difficulty: float) -> void:
+	_hp = int(max_hp * health_mod)
+
 func _ready() -> void:
 	# register self on game manager
 	if GameManager.level_manager:
